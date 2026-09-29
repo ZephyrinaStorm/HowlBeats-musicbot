@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: discord-stage-radio
+    runtime: node
+    plan: starter
+    numInstances: 1
+    buildCommand: npm ci
+    startCommand: npm start
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: STREAM_URL
+        value: https://furzona.radio/listen/clubradio/stream.mp3
+      - key: STAGECHANNEL_ID
+        sync: false
